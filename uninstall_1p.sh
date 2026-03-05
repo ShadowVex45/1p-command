@@ -1,16 +1,12 @@
 #!/bin/bash
 
-# Remove the alias line from .bashrc
+# 1. Remove from the file (Permanent)
 if [ -f ~/.bashrc ]; then
-    # This uses 'sed' to delete any line containing "alias 1p="
     sed -i '/alias 1p=/d' ~/.bashrc
-    echo "Removed '1p' from .bashrc."
 fi
 
-# Remove the alias from the current session immediately
+# 2. Kill it from memory (Instant)
 unalias 1p 2>/dev/null
 
-# Refresh the shell
-source ~/.bashrc
-
+echo "Removed '1p' from .bashrc."
 echo "Success! '1p' command has been uninstalled."
